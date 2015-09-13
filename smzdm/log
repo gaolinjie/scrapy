@@ -1,0 +1,25 @@
+2015-03-26 15:27:48+0800 [scrapy] INFO: Scrapy 0.24.5 started (bot: smzdm)
+2015-03-26 15:27:48+0800 [scrapy] INFO: Optional features available: ssl, http11
+2015-03-26 15:27:48+0800 [scrapy] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'smzdm.spiders', 'SPIDER_MODULES': ['smzdm.spiders'], 'BOT_NAME': 'smzdm', 'USER_AGENT': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.54 Safari/536.5', 'LOG_FILE': 'log', 'DOWNLOAD_DELAY': 2}
+2015-03-26 15:27:48+0800 [scrapy] INFO: Enabled extensions: LogStats, TelnetConsole, CloseSpider, WebService, CoreStats, SpiderState
+2015-03-26 15:27:48+0800 [scrapy] INFO: Enabled downloader middlewares: HttpAuthMiddleware, DownloadTimeoutMiddleware, UserAgentMiddleware, RetryMiddleware, DefaultHeadersMiddleware, MetaRefreshMiddleware, HttpCompressionMiddleware, RedirectMiddleware, CookiesMiddleware, ChunkedTransferMiddleware, DownloaderStats
+2015-03-26 15:27:48+0800 [scrapy] INFO: Enabled spider middlewares: HttpErrorMiddleware, OffsiteMiddleware, RefererMiddleware, UrlLengthMiddleware, DepthMiddleware
+2015-03-26 15:27:48+0800 [scrapy] INFO: Enabled item pipelines: 
+2015-03-26 15:27:48+0800 [smzdm] INFO: Spider opened
+2015-03-26 15:27:48+0800 [smzdm] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2015-03-26 15:27:48+0800 [scrapy] DEBUG: Telnet console listening on 127.0.0.1:6025
+2015-03-26 15:27:48+0800 [scrapy] DEBUG: Web service listening on 127.0.0.1:6082
+2015-03-26 15:27:48+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com> (referer: None)
+2015-03-26 15:27:51+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p1> (referer: http://www.smzdm.com)
+2015-03-26 15:27:51+0800 [smzdm] DEBUG: Filtered duplicate request: <GET http://www.smzdm.com/p1> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2015-03-26 15:27:54+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p6> (referer: http://www.smzdm.com)
+2015-03-26 15:27:56+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p5> (referer: http://www.smzdm.com)
+2015-03-26 15:27:58+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p4> (referer: http://www.smzdm.com)
+2015-03-26 15:28:01+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p3> (referer: http://www.smzdm.com)
+2015-03-26 15:28:03+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p2> (referer: http://www.smzdm.com)
+2015-03-26 15:28:06+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p9> (referer: http://www.smzdm.com/p6)
+2015-03-26 15:28:08+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p8> (referer: http://www.smzdm.com/p6)
+2015-03-26 15:28:11+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p7> (referer: http://www.smzdm.com/p6)
+2015-03-26 15:28:14+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p12> (referer: http://www.smzdm.com/p9)
+2015-03-26 15:28:17+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p11> (referer: http://www.smzdm.com/p9)
+2015-03-26 15:28:18+0800 [smzdm] DEBUG: Crawled (200) <GET http://www.smzdm.com/p10> (referer: http://www.smzdm.com/p9)
