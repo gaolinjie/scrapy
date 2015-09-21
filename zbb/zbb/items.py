@@ -13,4 +13,6 @@ class ZbbItem(scrapy.Item):
     url = scrapy.Field()
     post_type = scrapy.Field()
     feed_type = scrapy.Field()
+    feed_title = scrapy.Field()
+    feed_uuid = scrapy.Field()
     response = scrapy.Field()
