@@ -21,9 +21,6 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-dup = 0
-DUP_THRESHOLD = 3
-
 
 class ZbbPipeline(object):
 	def __init__(self):
@@ -35,7 +32,6 @@ class ZbbPipeline(object):
 			charset = 'utf8',
 			use_unicode = False
 		)
-		dup = 0
 
 	def process_item(self, item, spider):
 		query = self.dbpool.runInteraction(self._conditional_insert, item)
