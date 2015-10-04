@@ -37,35 +37,43 @@ class TiantianPipeline(object):
 		return item
 
 	def _conditional_insert(self, tx, item):
-		tx.execute(\
+		tx.execute("select * from live where game=%s and date=%s", (item['game'], item['date']))
+		result=tx.fetchone()
+
+		if result:
+			tx.execute("update live set team=%s where id=%s", (item['team'], result['id']))
+		else:
+			tx.execute(\
 				"insert into post (title, post_type, feed_type, content, updated, created) \
 				values (%s, %s, %s, %s, %s, %s)",\
 				(item['title'], 'live', '', '', item['date'], item['date']))
-		post_id = tx.lastrowid
+			post_id = tx.lastrowid
 
-		signal_text = ''
-		for signal in item['signal']:
-			body = '<html><body>'+signal+'</body></html>'
-			sel = Selector(text=body)
-			video_name = sel.xpath('//a/text()').extract()[0]
-			video_link = 'http://www.tiantian.tv'+sel.xpath('//a/@href').extract()[0]
-			signal_text = video_name + ' ' + signal_text
+			signal_text = ''
+			for signal in item['signal']:
+				body = '<html><body>'+signal+'</body></html>'
+				sel = Selector(text=body)
+				video_name = sel.xpath('//a/text()').extract()[0]
+				video_link = 'http://www.tiantian.tv'+sel.xpath('//a/@href').extract()[0]
+				signal_text = video_name + ' ' + signal_text
 			
-			tx.execute(\
-				"insert into video (name, link, vendor, open_type, created) \
-				values (%s, %s, %s, %s, %s)",\
-				(video_name, video_link, 'tiantian', 'new', item['date']))
-			video_id = tx.lastrowid
+				tx.execute(\
+					"insert into video (name, link, vendor, open_type, created) \
+					values (%s, %s, %s, %s, %s)",\
+					(video_name, video_link, 'tiantian', 'new', item['date']))
+				video_id = tx.lastrowid
 
-			tx.execute(\
-				"insert into object_video (video_id, obj_id, obj_type) \
-				values (%s, %s, %s)",\
-				(video_id, post_id, 'post'))
+				tx.execute(\
+					"insert into object_video (video_id, obj_id, obj_type) \
+					values (%s, %s, %s)",\
+					(video_id, post_id, 'post'))
 		
-		tx.execute(\
+			tx.execute(\
 				"insert into live (sport, game, team, signal_text, hot, post_id, date) \
 				values (%s, %s, %s, %s, %s, %s, %s)",\
 				(item['sport'], item['game'], item['team'], signal_text, item['hot'], post_id, item['date']))
+
+		
 
 	def handle_error(self, e):
 		log.err(e)
